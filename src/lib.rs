@@ -297,11 +297,23 @@ pub use assertions::{
 };
 pub use connector::AssertionConnector;
 
+#[cfg(feature = "json")]
+pub use assertions::json::{
+    JsonValueAssertion,
+    JsonObjectAssertion,
+};
+
 /// The prelude for smoothy. Contains the most important structs, traits and functions but not all
 pub mod prelude {
     pub use crate::{
         assert_that, BasicAsserter, BooleanAssertion, EqualityAssertion, IteratorAssertion,
         OptionAssertion, ResultAssertion, StringAssertion,
+    };
+
+    #[cfg(feature = "json")]
+    pub use crate::{
+        JsonValueAssertion,
+        JsonObjectAssertion,
     };
 }
 
